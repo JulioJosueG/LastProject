@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/DarkBlue"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="3dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="88dp"
+            android:layout_height="99dp"
+            app:srcCompat="@drawable/ic_baseline_movie_24"
+            tools:srcCompat="@drawable/ic_baseline_movie_24" />
+
+        <TextView
+            android:id="@+id/idTVTitle"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_toEndOf="@+id/imageView"
+            android:padding="4dp"
+            android:text="Title"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/idTVDate"
+            android:layout_width="291dp"
+            android:layout_height="46dp"
+            android:layout_below="@id/idTVTitle"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@+id/imageView"
+            android:padding="4dp"
+            android:text="Date"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
