@@ -36,7 +36,6 @@ class EpisodeAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val Episode = Episodes[position]
-
             holder.EpisodeName.text = Episodes[position].name
             holder.EpisodeNumber.text = Episodes[position].episode.toString()
             holder.EpisodeDate.text = "Air Date: "+ Episodes[position].air_date

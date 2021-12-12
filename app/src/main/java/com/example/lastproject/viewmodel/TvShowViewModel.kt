@@ -66,7 +66,7 @@ class TvShowViewModel (): ViewModel() {
     }
 
 
-    fun loadTVShowDetail(q : String){
+    fun loadTVShowDetail(q : String, season : Int =1){
         _loading.value = true;
         var response = service.GetTvShow(q).enqueue(object : Callback<ApiDetailResponse> {
             override fun onResponse(call: Call<ApiDetailResponse>,
@@ -74,7 +74,7 @@ class TvShowViewModel (): ViewModel() {
                 val responseBody = response.body()
                 select(responseBody!!.tvShow)
                 _loading.value = false;
-                _episodes.value = responseBody.tvShow.episodes
+                _episodes.value = responseBody.tvShow.episodes.filter { it.season == season }
 
             }
 

@@ -3,17 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/LastProject/app/src/main/res/drawable-v23/splash_background.xml" value="0.15989583333333332" />
         <entry key="..\:/Android/LastProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.15989583333333332" />
         <entry key="..\:/Android/LastProject/app/src/main/res/drawable/back.xml" value="0.290625" />
+        <entry key="..\:/Android/LastProject/app/src/main/res/drawable/bg_gradient.xml" value="0.22916666666666666" />
         <entry key="..\:/Android/LastProject/app/src/main/res/drawable/ic_baseline_movie_24.xml" value="0.15989583333333332" />
+        <entry key="..\:/Android/LastProject/app/src/main/res/drawable/splash_background.xml" value="0.4" />
         <entry key="..\:/Android/LastProject/app/src/main/res/drawable/startup_screen.xml" value="0.15989583333333332" />
         <entry key="..\:/Android/LastProject/app/src/main/res/layout-land/fragment_tv_show_detail.xml" value="0.264" />
         <entry key="..\:/Android/LastProject/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Android/LastProject/app/src/main/res/layout/episode_rv_item.xml" value="0.72" />
+        <entry key="..\:/Android/LastProject/app/src/main/res/layout/episode_rv_item.xml" value="0.6092105263157894" />
         <entry key="..\:/Android/LastProject/app/src/main/res/layout/fragment_list_movie.xml" value="0.264" />
-        <entry key="..\:/Android/LastProject/app/src/main/res/layout/fragment_start_up.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/LastProject/app/src/main/res/layout/fragment_start_up.xml" value="0.264" />
         <entry key="..\:/Android/LastProject/app/src/main/res/layout/fragment_tv_show_detail.xml" value="0.4" />
         <entry key="..\:/Android/LastProject/app/src/main/res/layout/movie_rv_item.xml" value="0.2" />
+        <entry key="..\:/Android/LastProject/app/src/main/res/layout/season_rv_item.xml" value="0.4" />
       </map>
     </option>
   </component>

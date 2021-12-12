@@ -16,15 +16,17 @@ import com.example.lastproject.model.Episodes
 import com.example.lastproject.model.TvShow
 import com.example.lastproject.view.adapter.EpisodeAdapter
 import com.example.lastproject.view.adapter.ListMovieAdapter
+import com.example.lastproject.view.adapter.onClickSeasonInterface
 import com.example.lastproject.viewmodel.TvShowViewModel
 import com.squareup.picasso.Picasso
 
 
-class TvShowDetailFragment : Fragment() {
+class TvShowDetailFragment : Fragment(), onClickSeasonInterface {
 
     lateinit var binding: FragmentTvShowDetailBinding
 
     lateinit var viewModel : TvShowViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,9 +80,17 @@ class TvShowDetailFragment : Fragment() {
     }
 
      fun setAdapter(items: List<Episodes>) {
+         binding.RCVSeasons.layoutManager =
+             LinearLayoutManager(requireContext())
+         binding.RCVSeasons.adapter= EpisodeAdapter(this,items)
+
         binding.RCVEpisodes.layoutManager =
             LinearLayoutManager(requireContext())
         binding.RCVEpisodes.adapter= EpisodeAdapter(this,items)
+    }
+
+    override fun onSeasonClick(season: Int) {
+        viewModel.loadTVShowDetail(viewModel.selected.value!!.id.toString(),season)
     }
 
 }
