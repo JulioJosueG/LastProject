@@ -33,13 +33,10 @@ class SeasonAdapter  (
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var x=1;
-        while (x<=Seasons){
-            holder.SeasonNumber.text = x.toString()
-            x++
-        }
+       var season= position+1
+            holder.SeasonNumber.text = season.toString()
         holder.cardView.setOnClickListener {
-            onClickSeadon.onSeasonClick(x)
+            onClickSeadon.onSeasonClick(season)
         }
     }
 

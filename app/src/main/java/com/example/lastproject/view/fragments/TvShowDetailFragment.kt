@@ -16,6 +16,7 @@ import com.example.lastproject.model.Episodes
 import com.example.lastproject.model.TvShow
 import com.example.lastproject.view.adapter.EpisodeAdapter
 import com.example.lastproject.view.adapter.ListMovieAdapter
+import com.example.lastproject.view.adapter.SeasonAdapter
 import com.example.lastproject.view.adapter.onClickSeasonInterface
 import com.example.lastproject.viewmodel.TvShowViewModel
 import com.squareup.picasso.Picasso
@@ -40,7 +41,9 @@ class TvShowDetailFragment : Fragment(), onClickSeasonInterface {
         viewModel = ViewModelProvider(requireActivity())[TvShowViewModel::class.java]
         viewModel.selected.observe(viewLifecycleOwner,{
             setViews()
+            setSeason(it.episodes.last().season)
         })
+
 
         viewModel.loading.observe(viewLifecycleOwner,{
 
@@ -80,13 +83,17 @@ class TvShowDetailFragment : Fragment(), onClickSeasonInterface {
     }
 
      fun setAdapter(items: List<Episodes>) {
-         binding.RCVSeasons.layoutManager =
-             LinearLayoutManager(requireContext())
-         binding.RCVSeasons.adapter= EpisodeAdapter(this,items)
+
 
         binding.RCVEpisodes.layoutManager =
             LinearLayoutManager(requireContext())
         binding.RCVEpisodes.adapter= EpisodeAdapter(this,items)
+    }
+    fun setSeason(season: Int){
+
+
+        binding.RCVSeasons.adapter= SeasonAdapter(this,season,this)
+
     }
 
     override fun onSeasonClick(season: Int) {
