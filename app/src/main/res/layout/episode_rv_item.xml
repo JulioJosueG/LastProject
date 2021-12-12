@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/black"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="3dp"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp">
+
+            <TextView
+                android:id="@+id/idTvEpisodeNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:text="Episode #"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/idTvEpisodeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="2dp"
+
+                android:layout_toEndOf="@id/idTvEpisodeNumber"
+                android:text="Episode Name"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/idTvEpisodeAirDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+
+                android:layout_toEndOf="@id/idTvEpisodeName"
+                android:text="Air Date: --/--/----"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/white"
+            />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -9,9 +9,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lastproject.R
 import com.example.lastproject.databinding.FragmentTvShowDetailBinding
+import com.example.lastproject.model.Episodes
 import com.example.lastproject.model.TvShow
+import com.example.lastproject.view.adapter.EpisodeAdapter
+import com.example.lastproject.view.adapter.ListMovieAdapter
 import com.example.lastproject.viewmodel.TvShowViewModel
 import com.squareup.picasso.Picasso
 
@@ -34,8 +38,6 @@ class TvShowDetailFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity())[TvShowViewModel::class.java]
         viewModel.selected.observe(viewLifecycleOwner,{
             setViews()
-
-            Toast.makeText(context,it.runtime.toString(),Toast.LENGTH_SHORT).show()
         })
 
         viewModel.loading.observe(viewLifecycleOwner,{
@@ -49,6 +51,9 @@ class TvShowDetailFragment : Fragment() {
             }
         })
 
+        viewModel.episodes.observe(viewLifecycleOwner,{
+            setAdapter(it)
+        })
 
         return binding.root
     }
@@ -70,8 +75,12 @@ class TvShowDetailFragment : Fragment() {
              binding.TextGenere!!.text = "Genere: " +tvShow.genres[1]
             binding.textRuntime!!.text = tvShow.runtime.toString() + " Minutes"
         activity!!.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
+    }
 
-
+     fun setAdapter(items: List<Episodes>) {
+        binding.RCVEpisodes.layoutManager =
+            LinearLayoutManager(requireContext())
+        binding.RCVEpisodes.adapter= EpisodeAdapter(this,items)
     }
 
 }

@@ -20,6 +20,7 @@ class TvShowViewModel (): ViewModel() {
     private val _exception = MutableLiveData<Throwable>()
     private val _pagination : MutableLiveData<Pagination> = MutableLiveData()
     private val _loading : MutableLiveData<Boolean> = MutableLiveData()
+    private val _episodes = MutableLiveData<List<Episodes>>()
 
     val service = ApiService.getInstance()
     var TypeInt : Int =0;
@@ -28,7 +29,7 @@ class TvShowViewModel (): ViewModel() {
     val exception : LiveData<Throwable> = _exception
     val pagination : LiveData<Pagination> = _pagination
     val loading : LiveData<Boolean> = _loading
-
+    val episodes : LiveData<List<Episodes>> = _episodes
 
     fun loadTvShows(page: Int =1) {
         _loading.value = true;
@@ -67,14 +68,13 @@ class TvShowViewModel (): ViewModel() {
 
     fun loadTVShowDetail(q : String){
         _loading.value = true;
-        TypeInt +=1;
-
         var response = service.GetTvShow(q).enqueue(object : Callback<ApiDetailResponse> {
             override fun onResponse(call: Call<ApiDetailResponse>,
                                     response: Response<ApiDetailResponse>) {
                 val responseBody = response.body()
                 select(responseBody!!.tvShow)
                 _loading.value = false;
+                _episodes.value = responseBody.tvShow.episodes
 
             }
 

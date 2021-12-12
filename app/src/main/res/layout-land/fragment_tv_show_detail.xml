@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/DarkBlue"
     tools:context=".view.fragments.TvShowDetailFragment">
 
 
@@ -124,12 +125,25 @@
         app:layout_constraintTop_toBottomOf="@+id/Date" />
 
     <RelativeLayout
+        android:background="@color/black"
         android:id="@+id/RVEpisodes"
         android:layout_width="733dp"
         android:layout_height="156dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RCVEpisodes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            tools:listitem="@layout/episode_rv_item">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
