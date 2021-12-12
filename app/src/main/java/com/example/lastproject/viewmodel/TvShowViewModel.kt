@@ -66,14 +66,22 @@ class TvShowViewModel (): ViewModel() {
 
 
     fun loadTVShowDetail(q : String){
+        _loading.value = true;
+        TypeInt +=1;
+
         var response = service.GetTvShow(q).enqueue(object : Callback<ApiDetailResponse> {
-            override fun onResponse(call: Call<ApiDetailResponse>, response: Response<ApiDetailResponse>) {
+            override fun onResponse(call: Call<ApiDetailResponse>,
+                                    response: Response<ApiDetailResponse>) {
                 val responseBody = response.body()
-                    _select.value = responseBody!!.tvShow
+                select(responseBody!!.tvShow)
+                _loading.value = false;
+
             }
 
             override fun onFailure(call: Call<ApiDetailResponse>, t: Throwable) {
                 _exception.value = t
+                _loading.value = false;
+
             }
 
         })

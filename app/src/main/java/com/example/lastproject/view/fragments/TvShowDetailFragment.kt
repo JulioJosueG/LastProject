@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.lastproject.R
@@ -31,9 +32,29 @@ class TvShowDetailFragment : Fragment() {
     ): View? {
         binding = FragmentTvShowDetailBinding.inflate(inflater,container,false)
         viewModel = ViewModelProvider(requireActivity())[TvShowViewModel::class.java]
-        var tvShow : TvShow = viewModel.selected.value!!
-        viewModel.loadTVShowDetail(tvShow.id.toString())
+        viewModel.selected.observe(viewLifecycleOwner,{
+            setViews()
 
+            Toast.makeText(context,it.runtime.toString(),Toast.LENGTH_SHORT).show()
+        })
+
+        viewModel.loading.observe(viewLifecycleOwner,{
+
+            if (it == true){
+                binding.progressBar.visibility = View.VISIBLE
+
+            }
+            else{
+                binding.progressBar.visibility = View.GONE
+            }
+        })
+
+
+        return binding.root
+    }
+
+    fun setViews(){
+        var tvShow : TvShow = viewModel.selected.value!!
         binding.Date.text = tvShow.start_date
         binding.TextDescription.text = tvShow.description
         binding.TextTitle.text = tvShow.name
@@ -44,13 +65,13 @@ class TvShowDetailFragment : Fragment() {
             .centerCrop()
             .fit()
             .into(binding.imageView2)
-        binding.rating.text = tvShow.rating.toString()
+        binding.rating.text = "Rating: " + tvShow.rating.toString()
         binding.TextState.text = tvShow.status
-        /*      binding.TextGenere!!.text = tvShow.genres[1]
-            binding.textRuntime!!.text = tvShow.runtime.toString()*/
+             binding.TextGenere!!.text = "Genere: " +tvShow.genres[1]
+            binding.textRuntime!!.text = tvShow.runtime.toString() + " Minutes"
         activity!!.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
 
-        return binding.root
+
     }
 
 }

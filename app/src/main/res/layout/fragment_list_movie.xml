@@ -48,7 +48,8 @@
             android:id="@+id/TvRV"
             android:layout_width="match_parent"
             android:layout_height="514dp"
-            tools:listitem="@layout/movie_rv_item" />
+            tools:listitem="@layout/movie_rv_item"
+            />
     </LinearLayout>
 
     <LinearLayout

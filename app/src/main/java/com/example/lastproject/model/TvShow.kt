@@ -27,7 +27,6 @@ class TvShow (
     @SerializedName("image_thumbnail_path") val image_thumbnail_path : String,
     @SerializedName("rating") val rating : Double,
     @SerializedName("rating_count") val rating_count : Int,
-    @SerializedName("countdown") val countdown : String,
     @SerializedName("genres") val genres : List<String>,
     @SerializedName("pictures") val pictures : List<String>,
     @SerializedName("episodes") val episodes : List<Episodes>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartUpFragment">
+    tools:context=".view.fragments.StartUpFragment">
 
     <Button
         android:id="@+id/Boton"

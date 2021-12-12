@@ -29,16 +29,12 @@ class ListMovieFragment : Fragment() , onClickTvShowInterface {
         super.onCreate(savedInstanceState)
 
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-
-
         binding = FragmentListMovieBinding.inflate(inflater,container,false)
-
         viewModel = ViewModelProvider(requireActivity())[TvShowViewModel::class.java]
         viewModel.tvShowList.observe(viewLifecycleOwner,{
 
@@ -99,14 +95,13 @@ class ListMovieFragment : Fragment() , onClickTvShowInterface {
         binding.TvRV.layoutManager =
             LinearLayoutManager(requireContext())
         binding.TvRV.adapter= ListMovieAdapter(this,items,this){
-            viewModel.select(it)
         }
 
 
     }
 
     override fun onTvShowClick(tvShow: TvShow) {
-        viewModel.select(tvShow)
+        viewModel.loadTVShowDetail(tvShow.id.toString())
         findNavController().navigate(R.id.action_listMovieFragment_to_tvShowDetailFragment)
     }
 

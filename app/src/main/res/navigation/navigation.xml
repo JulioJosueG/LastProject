@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_tv_show_detail" />
     <fragment
         android:id="@+id/startUpFragment"
-        android:name="com.example.lastproject.StartUpFragment"
+        android:name="com.example.lastproject.view.fragments.StartUpFragment"
         android:label="fragment_start_up"
         tools:layout="@layout/fragment_start_up" >
         <action
