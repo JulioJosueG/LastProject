@@ -68,30 +68,97 @@ class TvShowDetailFragment : Fragment(), onClickSeasonInterface {
 
 
         var tvShow : TvShow = viewModel.selected.value!!
-        binding.Date.text = tvShow.start_date
-        binding.TextDescription.text = tvShow.description
-        binding.TextTitle.text = tvShow.name
 
-        Picasso.with(context)
-            .load(tvShow.image_path)
-            .placeholder(R.drawable.image_placeholder)
-            .fit()
-            .into(binding.imageView2)
-
-        binding.rating.text = "Rating: " + tvShow.rating.toString()
-        binding.TextState.text = tvShow.status
-        if (tvShow.status.contains("Ended")){
-            binding.TextState.setTextColor(Color.parseColor("#ED1000"))
+        if(!tvShow.start_date.isNullOrEmpty()){
+            binding.Date.text = tvShow.start_date
         }
         else{
-            binding.TextState.setTextColor(Color.parseColor("#618656"))
+            binding.Date.text = "N/A"
+        }
+
+        if(!tvShow.description.isNullOrEmpty()){
+            binding.TextDescription.text = tvShow.description
+        }
+        else{
+            binding.TextDescription.text = "N/A"
 
         }
-      binding.ratingBar.rating = tvShow.rating.toFloat() / 2f
-        binding.Country.text = " Country: " + tvShow.country
-        binding.Network.text = " Network: " + tvShow.network
-        binding.TextGenere.text = "Genere: " +tvShow.genres[1]
-        binding.textRuntime.text = tvShow.runtime.toString() + " Minutes"
+        if(!tvShow.name.isNullOrEmpty()){
+            binding.TextTitle.text = tvShow.name
+        }
+        else{
+            binding.TextTitle.text = "N/A"
+
+        }
+
+        if(!tvShow.image_path.isNullOrEmpty()){
+            Picasso.with(context)
+                .load(tvShow.image_path)
+                .placeholder(R.drawable.image_placeholder)
+                .fit()
+                .into(binding.imageView2)
+        }
+
+        if(tvShow.rating > 0.0){
+            binding.rating.text = "Rating: " + tvShow.rating.toString()
+            binding.ratingBar.rating = tvShow.rating.toFloat() / 2f
+
+        }
+        else{
+            binding.rating.text = "N/A"
+            binding.ratingBar.rating = 0f;
+        }
+
+
+        if(!tvShow.status.isNullOrEmpty()){
+            binding.TextState.text = tvShow.status
+            if (tvShow.status.contains("Ended")){
+                binding.TextState.setTextColor(Color.parseColor("#ED1000"))
+            }
+            else{
+                binding.TextState.setTextColor(Color.parseColor("#618656"))
+
+            }
+        }
+        else{
+            binding.TextState.text = "N/A"
+
+        }
+
+        if(!tvShow.country.isNullOrEmpty()){
+            binding.Country.text = " Country: " + tvShow.country
+
+        }
+        else{
+            binding.Country.text = "N/A"
+
+        }
+
+        if(!tvShow.network.isNullOrEmpty()){
+            binding.Network.text = " Network: " + tvShow.network
+        }
+        else{
+            binding.Network.text = "N/A"
+
+        }
+
+        if(!tvShow.genres.isNullOrEmpty()){
+            binding.TextGenere.text = "Genere: " +tvShow.genres[1]
+        }
+        else{
+            binding.TextGenere.text = "N/A"
+
+        }
+
+
+        if(tvShow.runtime > 0){
+            binding.textRuntime.text = tvShow.runtime.toString() + " Minutes"
+        }
+        else{
+            binding.textRuntime.text = "N/A"
+
+        }
+
         activity!!.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
     }
 

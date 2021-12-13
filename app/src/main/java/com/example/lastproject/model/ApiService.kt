@@ -23,6 +23,7 @@ interface ApiService {
 
         private var _instance : ApiService? = null
 
+
         fun getInstance() : ApiService{
 
             if(_instance == null){
