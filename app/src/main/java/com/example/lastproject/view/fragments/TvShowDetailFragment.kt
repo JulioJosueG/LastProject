@@ -65,6 +65,8 @@ class TvShowDetailFragment : Fragment(), onClickSeasonInterface {
     }
 
     fun setViews(){
+
+
         var tvShow : TvShow = viewModel.selected.value!!
         binding.Date.text = tvShow.start_date
         binding.TextDescription.text = tvShow.description
@@ -75,20 +77,21 @@ class TvShowDetailFragment : Fragment(), onClickSeasonInterface {
             .placeholder(R.drawable.image_placeholder)
             .fit()
             .into(binding.imageView2)
+
         binding.rating.text = "Rating: " + tvShow.rating.toString()
         binding.TextState.text = tvShow.status
-        if (tvShow.status == "Ended"){
+        if (tvShow.status.contains("Ended")){
             binding.TextState.setTextColor(Color.parseColor("#ED1000"))
         }
         else{
             binding.TextState.setTextColor(Color.parseColor("#618656"))
 
         }
-
+      binding.ratingBar.rating = tvShow.rating.toFloat() / 2f
         binding.Country.text = " Country: " + tvShow.country
         binding.Network.text = " Network: " + tvShow.network
-             binding.TextGenere.text = "Genere: " +tvShow.genres[1]
-            binding.textRuntime.text = tvShow.runtime.toString() + " Minutes"
+        binding.TextGenere.text = "Genere: " +tvShow.genres[1]
+        binding.textRuntime.text = tvShow.runtime.toString() + " Minutes"
         activity!!.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
     }
 
