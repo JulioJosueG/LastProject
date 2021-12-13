@@ -8,8 +8,7 @@
     android:layout_margin="5dp"
     app:cardBackgroundColor="@color/black"
     app:cardCornerRadius="5dp"
-    app:cardElevation="3dp"
-    >
+    app:cardElevation="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,6 +16,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/RLTop"
             android:layout_width="match_parent"
             android:layout_height="33dp">
 
@@ -43,13 +43,13 @@
 
             <TextView
                 android:id="@+id/idTvEpisodeAirDate"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="25dp"
-
                 android:layout_toEndOf="@id/idTvEpisodeName"
                 android:text="Air Date: --/--/----"
+                android:textAlignment="viewEnd"
                 android:textColor="@color/white" />
 
 
@@ -58,8 +58,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/white"
-            />
+            android:background="@android:color/white" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

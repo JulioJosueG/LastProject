@@ -1,204 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/DarkBlue"
+    android:orientation="vertical"
     tools:context=".view.fragments.TvShowDetailFragment">
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="179dp"
-        android:layout_height="194dp"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/back"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/image_placeholder"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:indeterminate="true"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/RVEpisodes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rating"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/TextTitle"
-        android:layout_width="195dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="5dp"
-        android:gravity="center"
-        android:text="TITLE"
-
-        android:background="@drawable/back"
-        android:textSize="20dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Date"
-        android:layout_width="112dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="Date"
-        android:background="@drawable/back"
-        android:gravity="center"
-        android:textSize="16sp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <TextView
-        android:id="@+id/rating"
-        android:layout_width="112dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:textSize="16sp"
-
-        android:background="@drawable/back"
-        android:text="Rating"
-        app:layout_constraintEnd_toStartOf="@+id/TextState"
-        app:layout_constraintTop_toBottomOf="@+id/TextGenere" />
-
-    <TextView
-        android:id="@+id/textRuntime"
-        android:layout_width="112dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:textSize="16sp"
-
-        android:background="@drawable/back"
-        android:text="RunTime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-    <TextView
-        android:id="@+id/TextState"
-        android:layout_width="112dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"        android:background="@drawable/back"
-        android:gravity="center"
-        android:textSize="16sp"
-
-        android:text="State"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textRuntime" />
-
-    <TextView
-        android:id="@+id/TextGenere"
-        android:layout_width="112dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/back"
-        android:text="Genre"
-        android:gravity="center"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/textRuntime"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toEndOf="@+id/Date"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-    <RelativeLayout
-        android:backgroundTint="@color/black"
-        android:id="@+id/RVEpisodes"
-        android:layout_width="411dp"
-        android:layout_height="301dp"
-        android:background="@drawable/back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-               android:id="@+id/RCVSeasons"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/season_rv_item"
-               tools:itemCount="2"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                >
-
-            </androidx.recyclerview.widget.RecyclerView>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/RCVEpisodes"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                tools:listitem="@layout/episode_rv_item">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
-    <View
-        android:id="@+id/view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="10dp"
-        android:background="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/Date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="198dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="10dp"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextTitle"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="SpeakableTextPresentCheck">
-
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/RLTop"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="179dp"
+                android:layout_height="194dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/back"
+                android:src="@drawable/image_placeholder" />
+            <TextView
+                android:id="@+id/TextState"
+                android:layout_width="wrap_content"
+                android:padding="4dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toStartOf="@id/scrollView2"
+                android:layout_below="@id/imageView2"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="State"
+                android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/TextDescription"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginBottom="1dp"
-                android:background="@drawable/back"
-                android:text="Description" />
-        </LinearLayout>
-    </ScrollView>
+                android:id="@+id/TextTitle"
+                android:layout_width="195dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:background="@drawable/bg_gradient"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="TITLE"
+                android:textAlignment="center"
+                android:textSize="20dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="198dp"
+                android:layout_height="200dp"
+                android:layout_below="@id/TextTitle"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="10dp"
+
+                android:layout_toEndOf="@+id/imageView2"
+                android:scrollbars="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TextDescription"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:textColor="@color/white"
+                        android:padding="4dp"
+                        android:text="Description" />
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:indeterminate="true"
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/Date"
+                    android:layout_width="wrap_content"
+                    android:padding="4dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_gradient"
+                    android:gravity="center"
+                    android:text="Date"
+                    android:textColor="@color/white"
+
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:padding="4dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+
+                    android:background="@drawable/bg_gradient"
+                    android:gravity="center"
+                    android:text="Rating"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/Country"
+                    android:layout_width="wrap_content"
+                    android:padding="4dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_gradient"
+                    android:gravity="center"
+                    android:text="Country"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/Network"
+                    android:layout_width="wrap_content"
+                    android:padding="4dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_gradient"
+                    android:gravity="center"
+                    android:text="Network"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textRuntime"
+                    android:layout_width="wrap_content"
+                    android:padding="4dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+
+                    android:background="@drawable/bg_gradient"
+                    android:gravity="center"
+                    android:text="RunTime"
+                    android:textSize="16sp" />
+
+
+
+                <TextView
+                    android:id="@+id/TextGenere"
+                    android:layout_width="wrap_content"
+                    android:padding="4dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_gradient"
+                    android:gravity="center"
+                    android:text="Genre"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/RVEpisodes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/back"
+            android:backgroundTint="@color/black">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RCVSeasons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/season_rv_item">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RCVEpisodes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    tools:listitem="@layout/episode_rv_item">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

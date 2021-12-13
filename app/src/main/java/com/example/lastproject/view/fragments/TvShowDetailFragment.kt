@@ -1,6 +1,7 @@
 package com.example.lastproject.view.fragments
 
 import android.content.pm.ActivityInfo
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -72,13 +73,22 @@ class TvShowDetailFragment : Fragment(), onClickSeasonInterface {
         Picasso.with(context)
             .load(tvShow.image_path)
             .placeholder(R.drawable.image_placeholder)
-            .centerCrop()
             .fit()
             .into(binding.imageView2)
         binding.rating.text = "Rating: " + tvShow.rating.toString()
         binding.TextState.text = tvShow.status
-             binding.TextGenere!!.text = "Genere: " +tvShow.genres[1]
-            binding.textRuntime!!.text = tvShow.runtime.toString() + " Minutes"
+        if (tvShow.status == "Ended"){
+            binding.TextState.setTextColor(Color.parseColor("#ED1000"))
+        }
+        else{
+            binding.TextState.setTextColor(Color.parseColor("#618656"))
+
+        }
+
+        binding.Country!!.text = " Country: " + tvShow.country
+        binding.Network!!.text = " Network: " + tvShow.network
+             binding.TextGenere.text = "Genere: " +tvShow.genres[1]
+            binding.textRuntime.text = tvShow.runtime.toString() + " Minutes"
         activity!!.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
     }
 
