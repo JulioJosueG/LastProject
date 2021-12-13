@@ -85,8 +85,8 @@ class TvShowDetailFragment : Fragment(), onClickSeasonInterface {
 
         }
 
-        binding.Country!!.text = " Country: " + tvShow.country
-        binding.Network!!.text = " Network: " + tvShow.network
+        binding.Country.text = " Country: " + tvShow.country
+        binding.Network.text = " Network: " + tvShow.network
              binding.TextGenere.text = "Genere: " +tvShow.genres[1]
             binding.textRuntime.text = tvShow.runtime.toString() + " Minutes"
         activity!!.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
